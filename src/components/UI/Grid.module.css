@@ -1,0 +1,4 @@
+.grid{
+    width: min(100% - 4rem);
+    margin-inline: auto;
+}
