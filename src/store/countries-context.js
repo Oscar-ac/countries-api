@@ -1,12 +1,11 @@
 import React from 'react';
 
 const CountriesContext = React.createContext({
-	toggleDarkMode: () => {},
-	getCountries: () => {},
-	response: {},
-	darkMode: false,
 	countriesList: [],
-	region: "",
+	newSearch: () => {},
+	newFilter: () => {},
+	setSelectedCountry: () => {},
+	selectedCountry: {},
 });
 
 export default CountriesContext;

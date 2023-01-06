@@ -8,10 +8,6 @@ const Header = () => {
 
 	const countriesCtx = useContext(CountriesContext);
 
-	const getCountriesClickHandler = () => {
-		countriesCtx.getCountries();
-	}
-
 	return(
 		<header>
 			Where in the world?

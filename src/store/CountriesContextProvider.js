@@ -5,11 +5,14 @@ const CountriesContextProvider = (props) => {
 
 	const [response, setResponse] = useState({});
 	const [countriesList, setCountriesList] = useState([]);
+	// const [fetchArgSearch, setFetchArgSearch] = useState("");
+	// const [fetchArgFilter, setFetchArgFilter] = useState("");
+	const [fetchString, setFetchString] = useState("https://restcountries.com/v3.1/all");
+	const [selectedCountry, setSelectedCountry] = useState({});
 
 	useEffect(() => {
-	// const getCountriesHandler = () => {
 		console.log("before fetch");
-		fetch("https://restcountries.com/v3.1/all")
+		fetch(fetchString)
 			.then(response => {
 					let responseHolder = response;
 					console.log(response.status);
@@ -17,35 +20,35 @@ const CountriesContextProvider = (props) => {
 						return response.json();
 					} else {
 						setResponse({JSON: response.JSON, status: response.status})
-						// throw new Error("invalid location");
+						throw new Error("invalid location");
 					}	
 			})
 			.then(res => {
-			    // setResponse({
-			    // 			JSON: res,
-	    		// 			status: 200,
-	    		// 		});
-			    // console.log(response);
-			    // console.log(response.JSON);
 				setCountriesList(res);
-				// console.log(countriesList);
 			});
 			console.log("after fetch")
-	// }
-	}, []);
+	}, [fetchString]);
 
-	// const getCountries = () => {
-	// 	console.log(response);
-	// 	setCountriesList(response.JSON);
+	const newSearchHandler = (searchValue) => {
+		console.log(searchValue);
+		setFetchString("https://restcountries.com/v3.1/name/" + searchValue);
+	}
 
-	// 	console.log(countriesList);
-	// }
+	const newFilterHandler = (filterValue) => {
+		console.log(filterValue);
+		setFetchString("https://restcountries.com/v3.1/region/" + filterValue);
+	}
+
+	const setSelectedCountryHandler = (country) => {
+		setSelectedCountry(country);
+	}
 
 	const countriesContext = {
-		// darkMode: darkMode	
-		// getCountries:  getCountriesHandler,
-		response: response,
 		countriesList: countriesList,
+		newSearch: newSearchHandler,
+		newFilter: newFilterHandler,
+		selectedCountry: selectedCountry,
+		setSelectedCountry: setSelectedCountryHandler
 	}
 
 	return(
