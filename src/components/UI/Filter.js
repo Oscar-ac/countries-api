@@ -6,30 +6,28 @@ import classes from './Filter.module.css';
 
 const Filter = (props) => {
 
-	const [inputValue, setInputValue] = useState("");
-	// const [selectValue, setSelectValue] = useState("");
+	const [inputValue, setInputValue] = useState("")
+	const [optionValue, setOptionValue] = useState("");
 	const countriesCtx = useContext(CountriesContext);
 
 	useEffect(() => {
 		let x = setTimeout(() => {
 			if(inputValue !== ""){
-				countriesCtx.newSearch(inputValue);
-				// console.log("effect triggered");
+				countriesCtx.newFilter(inputValue, optionValue);
 			}
 		}, 1000);
 
 		return () => {
 	      	clearTimeout(x);
 	    }
-	}, [inputValue]);
+	}, [inputValue, optionValue]);
 
 	const inputChangeHandler = (event) => {
-		let inputValue = event.target.value;
 		setInputValue(event.target.value);
 	};	
 
 	const selectChangeHandler = (event) => {
-		countriesCtx.newFilter(event.target.value);
+		setOptionValue(event.target.value);
 	};
 
 	return (
@@ -37,6 +35,7 @@ const Filter = (props) => {
 			<input onChange={inputChangeHandler} type="text"/>
 
 			<select onChange={selectChangeHandler}>
+				<option value="" default>Select a region</option>
 				<option value="africa">Africa</option>
 				<option value="america">America</option>
 				<option value="asia">Asia</option>

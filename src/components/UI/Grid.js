@@ -10,7 +10,7 @@ const Grid = () => {
 
 	// if(countriesCtx.status === 200){
 		var countries = countriesCtx.countriesList;
-		console.log(countries);
+		// console.log(countries);
 	// }
 
 	return(

@@ -5,14 +5,15 @@ const CountriesContextProvider = (props) => {
 
 	const [response, setResponse] = useState({});
 	const [countriesList, setCountriesList] = useState([]);
+	const [defaultCountriesList, setDefaultCountriesList] = useState([]);
 	// const [fetchArgSearch, setFetchArgSearch] = useState("");
 	// const [fetchArgFilter, setFetchArgFilter] = useState("");
-	const [fetchString, setFetchString] = useState("https://restcountries.com/v3.1/all");
+	// const [fetchString, setFetchString] = useState("https://restcountries.com/v3.1/all");
 	const [selectedCountry, setSelectedCountry] = useState({});
-
+	console.log(defaultCountriesList.length);
 	useEffect(() => {
-		console.log("before fetch");
-		fetch(fetchString)
+		// console.log("before fetch");
+		fetch("https://restcountries.com/v3.1/all")
 			.then(response => {
 					let responseHolder = response;
 					console.log(response.status);
@@ -20,23 +21,22 @@ const CountriesContextProvider = (props) => {
 						return response.json();
 					} else {
 						setResponse({JSON: response.JSON, status: response.status})
-						throw new Error("invalid location");
+						// throw new Error("invalid location");
 					}	
 			})
 			.then(res => {
 				setCountriesList(res);
+				setDefaultCountriesList(res);
 			});
-			console.log("after fetch")
-	}, [fetchString]);
+			// console.log("after fetch")
+	}, []);
 
-	const newSearchHandler = (searchValue) => {
-		console.log(searchValue);
-		setFetchString("https://restcountries.com/v3.1/name/" + searchValue);
-	}
+	const newFilterHandler = (searchValue, optionValue) => {
+		const optionFilterResult = defaultCountriesList.filter(country => country.region.toLowerCase().includes(optionValue.toLowerCase()))
+		const searchFilterResult = optionFilterResult.filter(country => country.name.common.toLowerCase().includes(searchValue.toLowerCase()));
 
-	const newFilterHandler = (filterValue) => {
-		console.log(filterValue);
-		setFetchString("https://restcountries.com/v3.1/region/" + filterValue);
+		// console.log(optionValue, optionFilterResult, searchValue, searchFilterResult);
+		setCountriesList(searchFilterResult);
 	}
 
 	const setSelectedCountryHandler = (country) => {
@@ -45,7 +45,7 @@ const CountriesContextProvider = (props) => {
 
 	const countriesContext = {
 		countriesList: countriesList,
-		newSearch: newSearchHandler,
+		// newSearch: newSearchHandler,
 		newFilter: newFilterHandler,
 		selectedCountry: selectedCountry,
 		setSelectedCountry: setSelectedCountryHandler
