@@ -5,6 +5,7 @@ const CountriesContext = React.createContext({
 	newFilter: () => {},
 	setSelectedCountry: () => {},
 	selectedCountry: {},
+	getBorderObjects: () => {},
 });
 
 export default CountriesContext;

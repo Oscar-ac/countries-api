@@ -35,7 +35,7 @@ const CountriesContextProvider = (props) => {
 		const optionFilterResult = defaultCountriesList.filter(country => country.region.toLowerCase().includes(optionValue.toLowerCase()))
 		const searchFilterResult = optionFilterResult.filter(country => country.name.common.toLowerCase().includes(searchValue.toLowerCase()));
 
-		// console.log(optionValue, optionFilterResult, searchValue, searchFilterResult);
+		console.log(optionValue, optionFilterResult, searchValue, searchFilterResult);
 		setCountriesList(searchFilterResult);
 	}
 
@@ -43,12 +43,24 @@ const CountriesContextProvider = (props) => {
 		setSelectedCountry(country);
 	}
 
+	const getBorderObjectsHandler = (borderCountries) => {
+		console.log(borderCountries);
+		const borderObjects = [];
+		borderCountries.forEach(function(borderCountry){
+			const borderFilterResult = defaultCountriesList.filter(country => country.cca3.includes(borderCountry));
+			borderObjects.push(borderFilterResult);
+		});
+
+		return borderObjects;
+	}
+
 	const countriesContext = {
 		countriesList: countriesList,
 		// newSearch: newSearchHandler,
 		newFilter: newFilterHandler,
 		selectedCountry: selectedCountry,
-		setSelectedCountry: setSelectedCountryHandler
+		setSelectedCountry: setSelectedCountryHandler,
+		getBorderObjects: getBorderObjectsHandler,
 	}
 
 	return(

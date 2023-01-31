@@ -13,7 +13,11 @@ const Interior = (props) => {
 	const country = countriesCtx.selectedCountry;
 	const navigate = useNavigate();
 
-	console.log(country);
+	// console.log(country);
+
+	// console.log( localStorage.getItem("selectedCountry"));
+
+	console.log(countriesCtx.getBorderObjects(country.borders));
 
 	const goBack = () => {
 		navigate("/");
@@ -25,7 +29,7 @@ const Interior = (props) => {
 			<div className={` ${classes["interior"]} ${props.className}`}>
 				<div><img src={country.flags.svg} alt=""/></div>
 				<div>{country.name.common}</div>
-				<div>nativeName</div>
+				<div>{country.borders.map( (borderCountry, i) => <span key={`borderCountry-${i}`}>{borderCountry}, </span>)}</div>
 				<div>{country.population}</div>
 				<div>{country.region}</div>
 				<div>{country.subRegion}</div>
