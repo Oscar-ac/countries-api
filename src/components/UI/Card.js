@@ -11,6 +11,7 @@ const Card = (props) => {
 
 	const cardClickHandler = () => {
 		countriesCtx.setSelectedCountry(props.country);
+		console.log(props.country);
 	}
 
 	// console.log(props.country);

@@ -6,17 +6,14 @@ const CountriesContextProvider = (props) => {
 	const [response, setResponse] = useState({});
 	const [countriesList, setCountriesList] = useState([]);
 	const [defaultCountriesList, setDefaultCountriesList] = useState([]);
-	// const [fetchArgSearch, setFetchArgSearch] = useState("");
-	// const [fetchArgFilter, setFetchArgFilter] = useState("");
-	// const [fetchString, setFetchString] = useState("https://restcountries.com/v3.1/all");
 	const [selectedCountry, setSelectedCountry] = useState({});
-	console.log(defaultCountriesList.length);
+
 	useEffect(() => {
 		// console.log("before fetch");
 		fetch("https://restcountries.com/v3.1/all")
 			.then(response => {
 					let responseHolder = response;
-					console.log(response.status);
+					// console.log(response.status);
 					if(responseHolder.status === 200){
 						return response.json();
 					} else {
@@ -35,20 +32,23 @@ const CountriesContextProvider = (props) => {
 		const optionFilterResult = defaultCountriesList.filter(country => country.region.toLowerCase().includes(optionValue.toLowerCase()))
 		const searchFilterResult = optionFilterResult.filter(country => country.name.common.toLowerCase().includes(searchValue.toLowerCase()));
 
-		console.log(optionValue, optionFilterResult, searchValue, searchFilterResult);
 		setCountriesList(searchFilterResult);
 	}
 
 	const setSelectedCountryHandler = (country) => {
 		setSelectedCountry(country);
+		window.localStorage.setItem("currentCountry", JSON.stringify(country));
+		console.log("selected country", country);
+		// console.log(JSON.stringify(selectedCountry));
 	}
 
 	const getBorderObjectsHandler = (borderCountries) => {
-		console.log(borderCountries);
+		if(borderCountries === undefined) return;
 		const borderObjects = [];
 		borderCountries.forEach(function(borderCountry){
 			const borderFilterResult = defaultCountriesList.filter(country => country.cca3.includes(borderCountry));
-			borderObjects.push(borderFilterResult);
+			console.log(borderFilterResult[0]);
+			borderObjects.push(borderFilterResult[0]);
 		});
 
 		return borderObjects;

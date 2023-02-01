@@ -1,6 +1,6 @@
-import React,{useContext} from 'react';
+import React,{useContext, useEffect} from 'react';
 import CountriesContext from '../../store/countries-context';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import Button from './Button';
 
@@ -10,18 +10,23 @@ import classes from './Interior.module.css';
 const Interior = (props) => {
 
 	const countriesCtx = useContext(CountriesContext);
-	const country = countriesCtx.selectedCountry;
+	var country = countriesCtx.selectedCountry;
 	const navigate = useNavigate();
+	// var borderObjs = []
+	if(Object.keys(country).length === 0 && country.constructor === Object){
+		country = JSON.parse(window.localStorage.getItem("currentCountry"));	
+	}
+	const borderObjects = countriesCtx.getBorderObjects(country.borders);
 
-	// console.log(country);
-
-	// console.log( localStorage.getItem("selectedCountry"));
-
-	console.log(countriesCtx.getBorderObjects(country.borders));
-
+	console.log(borderObjects);
 	const goBack = () => {
 		navigate("/");
 	}
+
+	const borderLinkHandler = (borderCountry) => {
+		countriesCtx.setSelectedCountry(borderCountry);
+	}
+
 
 	return (
 		<main>
@@ -29,7 +34,7 @@ const Interior = (props) => {
 			<div className={` ${classes["interior"]} ${props.className}`}>
 				<div><img src={country.flags.svg} alt=""/></div>
 				<div>{country.name.common}</div>
-				<div>{country.borders.map( (borderCountry, i) => <span key={`borderCountry-${i}`}>{borderCountry}, </span>)}</div>
+				{borderObjects[0] !== undefined && <div>{borderObjects.map( (borderCountry, i) => <span key={`borderCountry-${i}`}><Link onClick={() => borderLinkHandler(borderCountry)} to={`/${borderCountry.name.common}`}> {borderCountry.name.common}</Link>, </span>)}</div>}
 				<div>{country.population}</div>
 				<div>{country.region}</div>
 				<div>{country.subRegion}</div>
