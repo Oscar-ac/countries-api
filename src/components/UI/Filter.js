@@ -31,8 +31,8 @@ const Filter = (props) => {
 
 	return (
 		<section className={`${classes["filter"]} ${props.className}`}>
-			<div class={classes["search-block"]}>	
-				<div class={classes["search-icon"]}><Search></Search></div>
+			<div className={classes["search-block"]}>	
+				<div className={classes["search-icon"]}><Search></Search></div>
 				<input className={classes["search"]} placeholder="search for a country..." onChange={inputChangeHandler} type="text"/>
 			</div>
 			<select className={classes["option"]} onChange={selectChangeHandler}>

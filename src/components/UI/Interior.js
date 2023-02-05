@@ -32,6 +32,8 @@ const Interior = (props) => {
 	const languageNamesArray = Object.values(country.languages);
 	const currencyArray = Object.values(country.currencies);
 
+	const nativeName = nativeNamesArray[0].common;
+
 	return (
 		<main className={`${props.className} ${classes["interior"]}`}>
 			<Button className="mx-0" onClick={goBack}><ArrowLeft></ArrowLeft> Back</Button>
@@ -41,20 +43,41 @@ const Interior = (props) => {
 					<h1 className={classes["country-name"]}>{country.name.common}</h1>	
 					<div className="row">
 						<ul className="col-6">
-							<li><span className="strong">Native Name:</span> {nativeNamesArray.map((nativeName, i) => <span key={`native-name-${i}`}>{nativeName.common} </span>)}</li>
+							<li><span className="strong">Native Name:</span> <span>{nativeName}</span></li>
 							<li><span className="strong">Population:</span> {country.population.toLocaleString()}</li>
 							<li><span className="strong">Region:</span> {country.region}</li>
 							{country.subregion && <li><span className="strong">Subregion:</span> {country.subregion}</li>}
-							<li><span className="strong">Capital City:</span> {country.capital}</li>
+							<li><span className="strong">Capital City:</span> {
+								country.capital.map((capitalCity, i) => 
+									<span key={`capital-${i}`}>{capitalCity}{i === country.capital.length - 1 ? "" : ", "}</span>)
+								}
+							</li>
 						</ul>
 						<ul className="col-6">
 							{country.tld && <li><span className="strong">Top level domain:</span> {country.tld.map( (tld, i) => <span key={`tld-${i}`}>{tld}</span>)}</li>}
-							<li><span className="strong">Currency:</span> {currencyArray.map((currency, i) => <span key={`currency-${i}`}>{currency.name} </span>)}</li>
-							<li><span className="strong">Languages:</span> {languageNamesArray.map((language, i) => <span key={`lang-${i}`}>{language} </span>)}</li>
+							<li><span className="strong">Currency:</span> {
+								currencyArray.map((currency, i) => 
+									<span key={`currency-${i}`}>{currency.name}{i === currencyArray.length - 1 ? "" : ", "}</span>)
+								}
+							</li>
+							<li><span className="strong">Languages:</span> {
+								languageNamesArray.map((language, i) => 
+									<span key={`lang-${i}`}>{language}{i === languageNamesArray.length - 1 ? "" : ", "}</span>)
+								}
+							</li>
 						</ul>
 					</div>
-					{borderObjects !== undefined && borderObjects[0] !== undefined && <div className={classes["borders"]}><span className="strong">Bordering:</span> {borderObjects.map( (borderCountry, i) => <Button key={`borderCountry-${i}`} className={classes["button--border"]}><Link onClick={() => borderLinkHandler(borderCountry)} to={`/${borderCountry.name.common}`}> {borderCountry.name.common}</Link> </Button>)}</div>}
-
+					{borderObjects !== undefined && borderObjects[0] !== undefined && 
+						<div className={classes["borders"]}>
+						<span className="strong">Border Countries:</span>
+					 	{borderObjects.map( (borderCountry, i) => 
+						 	<Button key={`borderCountry-${i}`} className={classes["button--border"]}>
+						 		<Link onClick={() => borderLinkHandler(borderCountry)} to={`/${borderCountry.name.common}`}>
+						 			{borderCountry.name.common}
+						 		</Link> 
+					 		</Button>)}
+					 	</div>
+					}
 				</div>			
 			</div>			
 		</main>
