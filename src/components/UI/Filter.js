@@ -12,9 +12,7 @@ const Filter = (props) => {
 
 	useEffect(() => {
 		let x = setTimeout(() => {
-			if(inputValue !== ""){
-				countriesCtx.newFilter(inputValue, optionValue);
-			}
+			countriesCtx.newFilter(inputValue, optionValue);
 		}, 1000);
 
 		return () => {

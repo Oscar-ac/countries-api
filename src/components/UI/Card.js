@@ -21,7 +21,7 @@ const Card = (props) => {
 			<div className={` ${classes["card--custom"]} ${props.className}`}>
 				<div><img src={props.country.flags.svg} alt=""/></div>
 				<div>{props.country.name.common}</div>
-				<div>{props.country.population}</div>
+				<div>{props.country.population.toLocaleString()}</div>
 				<div>{props.country.region}</div>
 				<div>{props.country.capital}</div>
 			</div>

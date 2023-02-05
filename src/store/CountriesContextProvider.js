@@ -7,6 +7,7 @@ const CountriesContextProvider = (props) => {
 	const [countriesList, setCountriesList] = useState([]);
 	const [defaultCountriesList, setDefaultCountriesList] = useState([]);
 	const [selectedCountry, setSelectedCountry] = useState({});
+	const [darkMode, setDarkMode] = useState(false);
 
 	useEffect(() => {
 		// console.log("before fetch");
@@ -29,8 +30,24 @@ const CountriesContextProvider = (props) => {
 	}, []);
 
 	const newFilterHandler = (searchValue, optionValue) => {
+		if(defaultCountriesList.length === 0){
+			// console.log("no countries loaded...");
+			return;
+		};
 		const optionFilterResult = defaultCountriesList.filter(country => country.region.toLowerCase().includes(optionValue.toLowerCase()))
-		const searchFilterResult = optionFilterResult.filter(country => country.name.common.toLowerCase().includes(searchValue.toLowerCase()));
+		
+		var searchFilterTarget = optionFilterResult;
+
+		if(optionValue === ""){
+			searchFilterTarget = defaultCountriesList;
+		}
+		
+		// console.log(searchFilterTarget);
+
+		const searchFilterResult = searchFilterTarget.filter(country => country.name.common.toLowerCase().includes(searchValue.toLowerCase()));
+		
+		// console.log(optionValue, searchValue);
+		// console.log(optionFilterResult, searchFilterResult);
 
 		setCountriesList(searchFilterResult);
 	}
@@ -38,7 +55,7 @@ const CountriesContextProvider = (props) => {
 	const setSelectedCountryHandler = (country) => {
 		setSelectedCountry(country);
 		window.localStorage.setItem("currentCountry", JSON.stringify(country));
-		console.log("selected country", country);
+		// console.log("selected country", country);
 		// console.log(JSON.stringify(selectedCountry));
 	}
 
@@ -47,11 +64,15 @@ const CountriesContextProvider = (props) => {
 		const borderObjects = [];
 		borderCountries.forEach(function(borderCountry){
 			const borderFilterResult = defaultCountriesList.filter(country => country.cca3.includes(borderCountry));
-			console.log(borderFilterResult[0]);
+			// console.log(borderFilterResult[0]);
 			borderObjects.push(borderFilterResult[0]);
 		});
 
 		return borderObjects;
+	}
+
+	const toggleDarkModeHandler = () => {
+		setDarkMode(!darkMode);
 	}
 
 	const countriesContext = {
@@ -61,6 +82,8 @@ const CountriesContextProvider = (props) => {
 		selectedCountry: selectedCountry,
 		setSelectedCountry: setSelectedCountryHandler,
 		getBorderObjects: getBorderObjectsHandler,
+		toggleDarkMode: toggleDarkModeHandler,
+		darkMode: darkMode,
 	}
 
 	return(

@@ -8,10 +8,17 @@ const Header = () => {
 
 	const countriesCtx = useContext(CountriesContext);
 
+	const darkModeClickHandler = () => {
+		countriesCtx.toggleDarkMode();
+	}
+
+	console.log(countriesCtx.darkMode);
+
+
 	return(
 		<header>
 			Where in the world?
-			<Button>Dark mode</Button>
+			<Button onClick={darkModeClickHandler}>Dark mode</Button>
 		</header>
 	);
 }
