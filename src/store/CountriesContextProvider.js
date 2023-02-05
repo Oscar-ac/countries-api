@@ -8,6 +8,7 @@ const CountriesContextProvider = (props) => {
 	const [defaultCountriesList, setDefaultCountriesList] = useState([]);
 	const [selectedCountry, setSelectedCountry] = useState({});
 	const [darkMode, setDarkMode] = useState(false);
+	const app = document.querySelector(".App");
 
 	useEffect(() => {
 		// console.log("before fetch");
@@ -73,6 +74,11 @@ const CountriesContextProvider = (props) => {
 
 	const toggleDarkModeHandler = () => {
 		setDarkMode(!darkMode);
+		if(darkMode){
+			app.classList.add("dark-mode");
+		} else {
+			app.classList.remove("dark-mode");
+		}
 	}
 
 	const countriesContext = {

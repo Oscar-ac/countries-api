@@ -14,10 +14,11 @@ const Grid = () => {
 	// }
 
 	return(
-		<main className={`row g-3 ${classes["grid"]}`}>
+		<main className={`${classes["grid"]}`}>
 			<Filter></Filter>
-			{countries.map( (country, i) => <Card key={`country-${i}`} className="" country={country}></Card>)}
-
+			<div className={`row ${classes["grid-wrap"]}`}>
+				{countries.map( (country, i) => <Card key={`country-${i}`} className="" country={country}></Card>)}
+			</div>
 		</main>
 	);
 }

@@ -1,0 +1,14 @@
+.header{
+    background-color: var(--text-dm--el-lm);
+    box-shadow: var(--b-shadow-lm);
+    z-index: 6000;
+    position: relative;
+    width: 100%;
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
+}
+
+.dark-mode .header{
+	background-color: var(--bg-dm);
+}

@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import CountriesContext from '../../store/countries-context';
 
+import { Search } from 'react-bootstrap-icons';
 
 import classes from './Filter.module.css';
 
@@ -29,10 +30,12 @@ const Filter = (props) => {
 	};
 
 	return (
-		<section className={`${classes["fitler"]} ${props.className}`}>
-			<input onChange={inputChangeHandler} type="text"/>
-
-			<select onChange={selectChangeHandler}>
+		<section className={`${classes["filter"]} ${props.className}`}>
+			<div class={classes["search-block"]}>	
+				<div class={classes["search-icon"]}><Search></Search></div>
+				<input className={classes["search"]} placeholder="search for a country..." onChange={inputChangeHandler} type="text"/>
+			</div>
+			<select className={classes["option"]} onChange={selectChangeHandler}>
 				<option value="" default>Select a region</option>
 				<option value="africa">Africa</option>
 				<option value="america">America</option>

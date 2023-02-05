@@ -17,13 +17,17 @@ const Card = (props) => {
 	// console.log(props.country);
 
 	return(
-		<Link onClick={cardClickHandler} className="col-3 p-0" to={`/${props.country.name.common}`}>
-			<div className={` ${classes["card--custom"]} ${props.className}`}>
-				<div><img src={props.country.flags.svg} alt=""/></div>
-				<div>{props.country.name.common}</div>
-				<div>{props.country.population.toLocaleString()}</div>
-				<div>{props.country.region}</div>
-				<div>{props.country.capital}</div>
+		<Link onClick={cardClickHandler} className={`col-12 col-sm-6 col-lg-3 p-0 m-0 ${classes["card--link"]}`} to={`/${props.country.name.common}`}>
+			<div className={classes["card--padding"]}>
+				<div className={` ${classes["card--custom"]} ${props.className}`}>
+					<div className={classes["card--image-container"]}><img src={props.country.flags.svg} alt=""/></div>
+					<ul className={classes["card--info"]}>
+						<li>{props.country.name.common}</li>
+						<li><span className="strong">Population: </span>{props.country.population.toLocaleString()}</li>
+						<li><span className="strong">Region: </span>{props.country.region}</li>
+						<li><span className="strong">Capital City: </span>{props.country.capital}</li>
+					</ul>
+				</div>
 			</div>
 		</Link>
 	);
