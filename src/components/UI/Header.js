@@ -2,6 +2,8 @@ import React, {useContext} from 'react';
 import classes from './Header.module.css';
 import CountriesContext from '../../store/countries-context';
 
+import { Moon } from 'react-bootstrap-icons';
+
 import Button from './Button';
 
 const Header = () => {
@@ -17,8 +19,8 @@ const Header = () => {
 
 	return(
 		<header className={classes["header"]}>
-			Where in the world?
-			<Button onClick={darkModeClickHandler}>Dark mode</Button>
+			<span className={classes["title"]}>Where in the world?</span>
+			<Button className={`m-0 ${classes['button--dark-mode']}`} onClick={darkModeClickHandler}><Moon></Moon>Dark mode</Button>
 		</header>
 	);
 }

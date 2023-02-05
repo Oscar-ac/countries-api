@@ -1,0 +1,37 @@
+.interior{
+	padding: 2rem;
+	background-color: var(--bg-lm);
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 16px;
+}
+
+.flag{
+	width: 100%;
+}
+
+.interior ul{
+	list-style: none;
+	text-align: left;
+}
+
+.country-name{
+	text-align: left;
+}
+
+.borders{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.button--border{
+	padding-inline: 1em;
+	margin: 0.5em;
+}
+
+.button--border a{
+	color: var(--text-lm);
+	text-decoration: none;
+}

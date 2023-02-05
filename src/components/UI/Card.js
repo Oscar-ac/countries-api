@@ -22,7 +22,7 @@ const Card = (props) => {
 				<div className={` ${classes["card--custom"]} ${props.className}`}>
 					<div className={classes["card--image-container"]}><img src={props.country.flags.svg} alt=""/></div>
 					<ul className={classes["card--info"]}>
-						<li>{props.country.name.common}</li>
+						<li className={`strong ${classes["card--name"]}`}>{props.country.name.common}</li>
 						<li><span className="strong">Population: </span>{props.country.population.toLocaleString()}</li>
 						<li><span className="strong">Region: </span>{props.country.region}</li>
 						<li><span className="strong">Capital City: </span>{props.country.capital}</li>

@@ -13,6 +13,8 @@
 	background-color: var(--text-dm--el-lm);
 	margin-bottom: 2rem;
 	overflow: hidden;
+	width: min(25em, 100%);
+
 }
 
 .search-icon{
@@ -24,6 +26,7 @@
 	border: 0;
 	background-color: var(--text-dm--el-lm);
 	padding: 1em 1em 1em 0;
+	width: 100%;
 }
 
 .option{
@@ -33,4 +36,5 @@
 	border: 0;
 	outline: 0;
 	margin-bottom: 2rem;
+	width: min(17em, 100%);
 }

@@ -16,13 +16,13 @@
 ;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 code {
@@ -33,3 +33,23 @@ code {
 .strong{
   font-weight: 600;
 }
+
+.weight-800{
+  font-weight: 800;
+}
+
+li{
+/*  margin: 0 0 0.5em;*/
+}
+
+/* .dark-mode main{  
+  background-color: var(--bg-dm);
+}
+
+.dark-mode header, .dark-mode input, .dark-mode li, .dark-mode ul, .dark-mode button, .dark-mode select{
+  background-color: var(--el-bg-dm);
+}
+
+.dark-mode, .dark-mode *, .dark-mode button a{
+  color: var(--text-dm--el-lm);
+}*/

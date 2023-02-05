@@ -9,6 +9,11 @@
     justify-content: space-between;
 }
 
-.dark-mode .header{
-	background-color: var(--bg-dm);
+.title{
+    font-size: 25px;
+    font-weight: 800;
+}
+
+button.button--dark-mode{
+    box-shadow: none;
 }

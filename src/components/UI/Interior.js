@@ -1,9 +1,9 @@
 import React,{useContext, useEffect} from 'react';
 import CountriesContext from '../../store/countries-context';
 import { useNavigate, Link } from "react-router-dom";
-
 import Button from './Button';
 
+import { ArrowLeft } from 'react-bootstrap-icons';
 import classes from './Interior.module.css';
 
 
@@ -33,20 +33,29 @@ const Interior = (props) => {
 	const currencyArray = Object.values(country.currencies);
 
 	return (
-		<main>
-			<Button onClick={goBack}>{`go back <---`}</Button>
-			<div className={` ${classes["interior"]} ${props.className}`}>
-				<div><img src={country.flags.svg} alt=""/></div>
-				<div>{country.name.common}</div>
-				<div>Native Name: {nativeNamesArray.map((nativeName, i) => <span key={`native-name-${i}`}>{nativeName.common} </span>)}</div>
-				{borderObjects !== undefined && borderObjects[0] !== undefined && <div>Bordering: {borderObjects.map( (borderCountry, i) => <span key={`borderCountry-${i}`}><Link onClick={() => borderLinkHandler(borderCountry)} to={`/${borderCountry.name.common}`}> {borderCountry.name.common}</Link> </span>)}</div>}
-				<div>Population: {country.population.toLocaleString()}</div>
-				<div>Region: {country.region}</div>
-				{country.subregion && <div>Subregion: {country.subregion}</div>}
-				<div>Capital City: {country.capital}</div>
-				{country.tld && <div>Top level domain: {country.tld.map( (tld, i) => <span key={`tld-${i}`}>{tld}</span>)}</div>}
-				<div>Currency: {currencyArray.map((currency, i) => <span key={`currency-${i}`}>{currency.name} </span>)}</div>
-				<div>Languages: {languageNamesArray.map((language, i) => <span key={`lang-${i}`}>{language} </span>)}</div>
+		<main className={`${props.className} ${classes["interior"]}`}>
+			<Button className="mx-0" onClick={goBack}><ArrowLeft></ArrowLeft> Back</Button>
+			<div className={`row align-items-center`}>
+				<div className="col-sm-6"><img className={classes["flag"]} src={country.flags.svg} alt=""/></div>
+				<div className="col-sm-6">
+					<h1 className={classes["country-name"]}>{country.name.common}</h1>	
+					<div className="row">
+						<ul className="col-6">
+							<li><span className="strong">Native Name:</span> {nativeNamesArray.map((nativeName, i) => <span key={`native-name-${i}`}>{nativeName.common} </span>)}</li>
+							<li><span className="strong">Population:</span> {country.population.toLocaleString()}</li>
+							<li><span className="strong">Region:</span> {country.region}</li>
+							{country.subregion && <li><span className="strong">Subregion:</span> {country.subregion}</li>}
+							<li><span className="strong">Capital City:</span> {country.capital}</li>
+						</ul>
+						<ul className="col-6">
+							{country.tld && <li><span className="strong">Top level domain:</span> {country.tld.map( (tld, i) => <span key={`tld-${i}`}>{tld}</span>)}</li>}
+							<li><span className="strong">Currency:</span> {currencyArray.map((currency, i) => <span key={`currency-${i}`}>{currency.name} </span>)}</li>
+							<li><span className="strong">Languages:</span> {languageNamesArray.map((language, i) => <span key={`lang-${i}`}>{language} </span>)}</li>
+						</ul>
+					</div>
+					{borderObjects !== undefined && borderObjects[0] !== undefined && <div className={classes["borders"]}><span className="strong">Bordering:</span> {borderObjects.map( (borderCountry, i) => <Button key={`borderCountry-${i}`} className={classes["button--border"]}><Link onClick={() => borderLinkHandler(borderCountry)} to={`/${borderCountry.name.common}`}> {borderCountry.name.common}</Link> </Button>)}</div>}
+
+				</div>			
 			</div>			
 		</main>
 	);
