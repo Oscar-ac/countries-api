@@ -14,7 +14,7 @@ const Filter = (props) => {
 	useEffect(() => {
 		let x = setTimeout(() => {
 			countriesCtx.newFilter(inputValue, optionValue);
-		}, 1000);
+		}, 500);
 
 		return () => {
 	      	clearTimeout(x);

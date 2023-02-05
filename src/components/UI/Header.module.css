@@ -1,6 +1,6 @@
 .header{
-    background-color: var(--text-dm--el-lm);
-    box-shadow: var(--b-shadow-lm);
+    background-color: var(--el);
+    box-shadow: var(--b-shadow);
     z-index: 6000;
     position: relative;
     width: 100%;
@@ -12,6 +12,7 @@
 .title{
     font-size: 25px;
     font-weight: 800;
+    color: var(--text);
 }
 
 button.button--dark-mode{

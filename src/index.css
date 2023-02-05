@@ -1,20 +1,20 @@
 :root{
-/*- Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)*/
---el-bg-dm: hsl(209, 23%, 22%);
-/*- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)*/
---bg-dm: hsl(207, 26%, 17%);
-/*- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)*/
---text-lm: hsl(200, 15%, 8%);
-/*- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)*/
---input-lm: hsl(0, 0%, 52%);
-/*- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)*/
---bg-lm: hsl(0, 0%, 98%);
-/*- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)*/
---text-dm--el-lm: hsl(0, 0%, 100%);
-
---b-shadow-lm: 0 0px 10px hsl(0, 0%, 80%);
-;
+  --text: hsl(200, 15%, 8%);
+  --input: hsl(0, 0%, 52%);
+  --bg: hsl(0, 0%, 98%);
+  --el: hsl(0, 0%, 100%);
+  --b-shadow: 0 0px 10px hsl(0, 0%, 80%);
 }
+
+[data-theme="dark"]{
+  --el: hsl(209, 23%, 22%);
+  --input: hsl(209, 23%, 22%);
+  --bg: hsl(207, 26%, 17%);
+  --text: hsl(0, 0%, 100%);
+  --b-shadow: 0 0px 10px hsl(0, 0%, 10%);
+}
+
+
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
@@ -37,19 +37,3 @@ code {
 .weight-800{
   font-weight: 800;
 }
-
-li{
-/*  margin: 0 0 0.5em;*/
-}
-
-/* .dark-mode main{  
-  background-color: var(--bg-dm);
-}
-
-.dark-mode header, .dark-mode input, .dark-mode li, .dark-mode ul, .dark-mode button, .dark-mode select{
-  background-color: var(--el-bg-dm);
-}
-
-.dark-mode, .dark-mode *, .dark-mode button a{
-  color: var(--text-dm--el-lm);
-}*/

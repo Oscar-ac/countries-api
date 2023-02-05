@@ -6,8 +6,8 @@ const CountriesContext = React.createContext({
 	setSelectedCountry: () => {},
 	selectedCountry: {},
 	getBorderObjects: () => {},
-	toggleDarkMode: () => {},
-	darkMode: false,
+	// toggleDarkMode: () => {},
+	// darkMode: false,
 });
 
 export default CountriesContext;

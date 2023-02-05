@@ -6,11 +6,12 @@
 }
 
 .search-block{
-	box-shadow: var(--b-shadow-lm);
+	box-shadow: var(--b-shadow);
 	display: flex;
 	align-items: center;
 	border-radius: 5px;
-	background-color: var(--text-dm--el-lm);
+	background-color: var(--el);
+	color: var(--text);
 	margin-bottom: 2rem;
 	overflow: hidden;
 	width: min(25em, 100%);
@@ -24,14 +25,17 @@
 .search{
 	outline: none;
 	border: 0;
-	background-color: var(--text-dm--el-lm);
+	background-color: var(--el);
+	color: var(--text);
 	padding: 1em 1em 1em 0;
 	width: 100%;
 }
 
 .option{
 	border-radius: 5px;
-	box-shadow: var(--b-shadow-lm);
+	box-shadow: var(--b-shadow);
+	background-color: var(--el);
+	color: var(--text);
 	padding: 1em;
 	border: 0;
 	outline: 0;

@@ -7,8 +7,8 @@ const CountriesContextProvider = (props) => {
 	const [countriesList, setCountriesList] = useState([]);
 	const [defaultCountriesList, setDefaultCountriesList] = useState([]);
 	const [selectedCountry, setSelectedCountry] = useState({});
-	const [darkMode, setDarkMode] = useState(false);
-	const app = document.querySelector(".App");
+	// const [darkMode, setDarkMode] = useState(false);
+	// const app = document.querySelector(".App");
 
 	useEffect(() => {
 		// console.log("before fetch");
@@ -72,14 +72,14 @@ const CountriesContextProvider = (props) => {
 		return borderObjects;
 	}
 
-	const toggleDarkModeHandler = () => {
-		setDarkMode(!darkMode);
-		if(darkMode){
-			app.classList.add("dark-mode");
-		} else {
-			app.classList.remove("dark-mode");
-		}
-	}
+	// const toggleDarkModeHandler = () => {
+	// 	setDarkMode(!darkMode);
+	// 	// if(darkMode){
+	// 	// 	app.classList.add("dark-mode");
+	// 	// } else {
+	// 	// 	app.classList.remove("dark-mode");
+	// 	// }
+	// }
 
 	const countriesContext = {
 		countriesList: countriesList,
@@ -88,8 +88,8 @@ const CountriesContextProvider = (props) => {
 		selectedCountry: selectedCountry,
 		setSelectedCountry: setSelectedCountryHandler,
 		getBorderObjects: getBorderObjectsHandler,
-		toggleDarkMode: toggleDarkModeHandler,
-		darkMode: darkMode,
+		// toggleDarkMode: toggleDarkModeHandler,
+		// darkMode: darkMode,
 	}
 
 	return(

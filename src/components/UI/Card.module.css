@@ -7,9 +7,9 @@
 }
 
 .card--custom{
-	border-radius: 10px;
+	border-radius: 5px;
 	overflow: hidden;
-	box-shadow: var(--b-shadow-lm);
+	box-shadow: var(--b-shadow);
 	border:0;
 }
 
@@ -29,8 +29,8 @@
 }
 
 .card--info{
-	background-color: var(--text-dm--el-lm);
-	color: var(--text-lm);
+	background-color: var(--el);
+	color: var(--text);
 	text-decoration: none;
 	list-style: none;
 	padding: 1em;

@@ -1,8 +1,9 @@
 .button{
-	background-color: var(--text-dm--el-lm);
+	background-color: var(--el);
+	color: var(--text);
 	border: 0;
 	border-radius: 5px;
-	box-shadow: 0 0 5px #5b5b5b;
+	box-shadow: var(--b-shadow);
 	margin: 1rem;
 	padding: 0.25em 2em;
 }

@@ -1,7 +1,7 @@
 .grid{
 /*    width: min(100% - 4rem);*/
     margin-inline: auto;
-    background-color: var(--bg-lm);
+    background-color: var(--bg);
 }
 
 .grid-wrap{

@@ -6,21 +6,21 @@ import { Moon } from 'react-bootstrap-icons';
 
 import Button from './Button';
 
-const Header = () => {
+const Header = (props) => {
 
-	const countriesCtx = useContext(CountriesContext);
+	// const countriesCtx = useContext(CountriesContext);
 
-	const darkModeClickHandler = () => {
-		countriesCtx.toggleDarkMode();
-	}
+	// const darkModeClickHandler = () => {
+	// 	countriesCtx.toggleDarkMode();
+	// }
 
-	console.log(countriesCtx.darkMode);
+	// console.log(countriesCtx.darkMode);
 
 
 	return(
 		<header className={classes["header"]}>
 			<span className={classes["title"]}>Where in the world?</span>
-			<Button className={`m-0 ${classes['button--dark-mode']}`} onClick={darkModeClickHandler}><Moon></Moon>Dark mode</Button>
+			<Button className={`m-0 ${classes['button--dark-mode']}`} onClick={props.darkModeFunction}><Moon></Moon> Dark mode</Button>
 		</header>
 	);
 }
