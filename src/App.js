@@ -11,11 +11,6 @@ import Interior from './components/UI/Interior';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
-// https://restcountries.com/
-// header, main, cards, single page, router
-
-
 const Home = () => (
   <Fragment>
     <Grid></Grid>
@@ -45,8 +40,8 @@ function App() {
         <CountriesContextProvider>
           <Header darkModeFunction={toggleDarkModeHandler}></Header>
           <Routes>
-            <Route path="" element={<Home></Home>} />
-            <Route path="/:name" element={<Inside></Inside>} />
+            <Route path="/rest-countries/" element={<Home></Home>} />
+            <Route path="/rest-countries/:name" element={<Inside></Inside>} />
           </Routes>
         </CountriesContextProvider>
       </div>

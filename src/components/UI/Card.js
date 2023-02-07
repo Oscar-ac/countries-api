@@ -16,7 +16,7 @@ const Card = (props) => {
 	const name = props.country.name.common;
 
 	return(
-		<Link onClick={cardClickHandler} className={`col-12 col-sm-6 col-lg-3 ${classes["card--link"]}`} to={`/${name}`}>
+		<Link onClick={cardClickHandler} className={`col-12 col-sm-6 col-lg-3 ${classes["card--link"]}`} to={`/rest-countries/${name}`}>
 			<div className={classes["card--padding"]}>
 				<div className={` ${classes["card--custom"]} ${props.className}`}>
 					<div className={classes["card--image-container"]}><img src={props.country.flags.svg} alt={`Flag of ${name}`}/></div>

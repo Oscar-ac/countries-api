@@ -20,7 +20,7 @@ const Interior = (props) => {
 	const borderObjects = countriesCtx.getBorderObjects(country.borders);
 
 	const goBack = () => {
-		navigate("/");
+		navigate("/rest-countries/");
 	}
 
 	const borderLinkHandler = (borderCountry) => {
@@ -75,7 +75,7 @@ const Interior = (props) => {
 							<span className="strong col-12 col-sm-3 align-left">Border Countries:</span>
 							{borderObjects.map( (borderCountry, i) => 
 								<Button key={`borderCountry-${i}`} className={classes["button--border"]}>
-									<Link onClick={() => borderLinkHandler(borderCountry)} to={`/${borderCountry.name.common}`}>
+									<Link onClick={() => borderLinkHandler(borderCountry)} to={`/rest-countries/${borderCountry.name.common}`}>
 										{borderCountry.name.common}
 									</Link> 
 								</Button>)}
