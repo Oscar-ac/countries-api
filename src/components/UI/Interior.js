@@ -20,7 +20,7 @@ const Interior = (props) => {
 	const borderObjects = countriesCtx.getBorderObjects(country.borders);
 
 	const goBack = () => {
-		navigate("/rest-countries/");
+		navigate("/countries-api/");
 	}
 
 	const borderLinkHandler = (borderCountry) => {
