@@ -3,7 +3,6 @@ import CountriesContext from './countries-context';
 
 const CountriesContextProvider = (props) => {
 
-	const [response, setResponse] = useState({});
 	const [countriesList, setCountriesList] = useState([]);
 	const [defaultCountriesList, setDefaultCountriesList] = useState([]);
 	const [selectedCountry, setSelectedCountry] = useState({});
@@ -14,9 +13,7 @@ const CountriesContextProvider = (props) => {
 					let responseHolder = response;
 					if(responseHolder.status === 200){
 						return response.json();
-					} else {
-						setResponse({JSON: response.JSON, status: response.status})
-					}	
+					} 
 			})
 			.then(res => {
 				setCountriesList(res);

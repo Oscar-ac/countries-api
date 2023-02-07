@@ -11,18 +11,17 @@ const Card = (props) => {
 
 	const cardClickHandler = () => {
 		countriesCtx.setSelectedCountry(props.country);
-		console.log(props.country);
 	}
 
-	// console.log(props.country);
+	const name = props.country.name.common;
 
 	return(
-		<Link onClick={cardClickHandler} className={`col-12 col-sm-6 col-lg-3 p-0 m-0 ${classes["card--link"]}`} to={`/${props.country.name.common}`}>
+		<Link onClick={cardClickHandler} className={`col-12 col-sm-6 col-lg-3 ${classes["card--link"]}`} to={`/${name}`}>
 			<div className={classes["card--padding"]}>
 				<div className={` ${classes["card--custom"]} ${props.className}`}>
-					<div className={classes["card--image-container"]}><img src={props.country.flags.svg} alt=""/></div>
+					<div className={classes["card--image-container"]}><img src={props.country.flags.svg} alt={`Flag of ${name}`}/></div>
 					<ul className={classes["card--info"]}>
-						<li className={`strong ${classes["card--name"]}`}>{props.country.name.common}</li>
+						<li className={`strong ${classes["card--name"]}`}>{name}</li>
 						<li><span className="strong">Population: </span>{props.country.population.toLocaleString()}</li>
 						<li><span className="strong">Region: </span>{props.country.region}</li>
 						<li><span className="strong">Capital City: </span>{props.country.capital}</li>

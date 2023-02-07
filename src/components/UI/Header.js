@@ -1,26 +1,15 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import classes from './Header.module.css';
-import CountriesContext from '../../store/countries-context';
-
 import { Moon } from 'react-bootstrap-icons';
-
 import Button from './Button';
 
 const Header = (props) => {
-
-	// const countriesCtx = useContext(CountriesContext);
-
-	// const darkModeClickHandler = () => {
-	// 	countriesCtx.toggleDarkMode();
-	// }
-
-	// console.log(countriesCtx.darkMode);
-
-
 	return(
-		<header className={classes["header"]}>
-			<span className={classes["title"]}>Where in the world?</span>
-			<Button className={`m-0 ${classes['button--dark-mode']}`} onClick={props.darkModeFunction}><Moon></Moon> Dark mode</Button>
+		<header className={`${classes["header"]}`}>
+			<div className={`content-width ${classes["header-content--flex"]}`}>
+				<span className={classes["title"]}>Where in the world?</span>
+				<Button className={`m-0 px-0 ${classes['button--dark-mode']}`} onClick={props.darkModeFunction}><Moon></Moon> Dark mode</Button>
+			</div>
 		</header>
 	);
 }

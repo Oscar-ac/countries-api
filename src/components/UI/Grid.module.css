@@ -1,10 +1,3 @@
 .grid{
-/*    width: min(100% - 4rem);*/
-    margin-inline: auto;
     background-color: var(--bg);
-}
-
-.grid-wrap{
-    padding: 0 1rem;
-    margin: 0;
 }

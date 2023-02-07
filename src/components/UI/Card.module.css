@@ -3,7 +3,7 @@
 }
 
 .card--padding{
-	padding: 0 1rem 2rem;
+	padding: 1rem 0;
 }
 
 .card--custom{
@@ -13,13 +13,14 @@
 	border:0;
 }
 
-.card--custom img{
-/*	max-width: 100%;*/
-/*	box-shadow: 0 0 5px black;*/
+.card--image-container{
+	height: 15rem;
 }
 
-.card--image-container{
-	height: 12.5rem;
+@media screen and (min-width: 435px){
+	.card--image-container{
+		height: 13rem;
+	}
 }
 
 .card--image-container img{
@@ -43,4 +44,8 @@
 .card--name{
 	font-size: 1.25em;
 	margin-bottom: 0.25em;
+}
+
+.card--info li{
+	margin-bottom: .5em;
 }

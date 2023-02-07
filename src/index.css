@@ -37,3 +37,31 @@ code {
 .weight-800{
   font-weight: 800;
 }
+
+.content-width{
+  width: min(100%, 86rem);
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 435px){
+  .content-width{
+    padding: 2rem;
+  }
+}
+
+.align-left{
+  text-align: left;
+}
+
+.align-right{
+  text-align: right;
+}
+
+.align-center{
+  text-align: center;
+}
+
+.list-style-none{
+  list-style: none;
+}
