@@ -34,7 +34,7 @@ Your users should be able to:
 
 ### Links
 
-- Solution URL: [https://oscar-dev.online/rest-countries/](https://oscar-dev.online/rest-countries/)
+- Solution URL: [https://oscar-ac.github.io/countries-api/](https://oscar-ac.github.io/countries-api/)
 
 ## My process
 
