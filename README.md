@@ -30,7 +30,7 @@ Your users should be able to:
 
 ### Screenshot
 
-![](./screenshot.png)
+![](https://github.com/Oscar-ac/countries-api/blob/1143848fb569f300c2dc04ba311772e92f276789/sreenshot.PNG)
 
 ### Links
 
