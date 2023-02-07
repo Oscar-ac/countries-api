@@ -40,8 +40,8 @@ function App() {
         <CountriesContextProvider>
           <Header darkModeFunction={toggleDarkModeHandler}></Header>
           <Routes>
-            <Route path="/rest-countries/" element={<Home></Home>} />
-            <Route path="/rest-countries/:name" element={<Inside></Inside>} />
+            <Route path="/countries-api/" element={<Home></Home>} />
+            <Route path="/countries-api/:name" element={<Inside></Inside>} />
           </Routes>
         </CountriesContextProvider>
       </div>
